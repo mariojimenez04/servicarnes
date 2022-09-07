@@ -15,17 +15,12 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('user_name');
+            $table->string('email')->unique();
             $table->string('password');
-            $table->string('first_name');
-            $table->string('last_name');
+            $table->string('user');
             $table->boolean('admin');
-            $table->boolean('catalogos');
-            $table->boolean('movimientos');
-            $table->boolean('reportes');
-            $table->boolean('herramientas');
-            $table->boolean('utilerias');
-            $table->boolean('ayuda');
+            $table->boolean('supervisor');
+            $table->boolean('usuario');
             $table->rememberToken();
             $table->timestamps();
         });
