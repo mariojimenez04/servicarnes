@@ -70,6 +70,7 @@ return new class extends Migration
             $table->boolean('crear_almacen');
             $table->boolean('editar_almacen');
             $table->boolean('eliminar_almacen');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
