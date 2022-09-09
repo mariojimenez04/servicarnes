@@ -35,7 +35,7 @@
                             
                             <div class="login-descripcion d-flex">
                                 <span><i class="bi bi-key-fill"></i></span>
-                                <input type="password" name="password" id="password" placeholder="Password">
+                                <input type="password" name="password" id="password" placeholder="Contraseña">
                             </div><!--cierre password-->
                             <button class="boton-1" type="submit">Iniciar sesion</button>
                         </form><!--cierre formulario-->

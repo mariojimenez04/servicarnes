@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CatalogoController;
 use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +20,7 @@ Route::get('/', function() {
     return view('home');
 });
 
+/* USUARIOS */
 /* Registrar usuarios */
 Route::get('/admin/register-users', [UsuarioController::class, 'create'])->name('users.create');
 Route::post('/admin/register-users', [UsuarioController::class, 'store'])->name('users.store');
@@ -32,10 +34,11 @@ Route::post('/admin/update-users', [UsuarioController::class, 'update'])->name('
 /* Eliminar usuarios */
 Route::post('/admin/delete-users', [UsuarioController::class, 'delete'])->name('');
 
-
+/* CATALOGOS */
+Route::get('/catalogue', [CatalogoController::class, 'index'])->name('catalogo.index');
 
 /* INDEX */
-Route::get('/admin', function() {
+Route::get('/index', function() {
     return view('index');
 });
 
