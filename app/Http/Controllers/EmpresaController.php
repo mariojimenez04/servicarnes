@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class CatalogoController extends Controller
+class EmpresaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +13,8 @@ class CatalogoController extends Controller
      */
     public function index()
     {
-        //
-        return view('catalogos.index');
+        //retornar la vista
+        return view('empresas.index');
     }
 
     /**
@@ -24,7 +24,8 @@ class CatalogoController extends Controller
      */
     public function create()
     {
-        //
+        //Retornar la vista
+        return view('empresas.create');
     }
 
     /**
@@ -35,7 +36,7 @@ class CatalogoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Insertar en base de datos
     }
 
     /**
@@ -44,9 +45,10 @@ class CatalogoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        //Retornar la vista
+        return view('empresas.show');
     }
 
     /**
@@ -81,5 +83,11 @@ class CatalogoController extends Controller
     public function destroy($id)
     {
         //
+    }
+    
+    public function category()
+    {
+        //Retornar la vista
+        return view('empresas.category');
     }
 }

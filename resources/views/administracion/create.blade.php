@@ -1,56 +1,60 @@
 @extends('layouts.app')
 
+{{-- @section('estilos')
+    @vite('resources/css/app.css')
+@endsection --}}
+
 @section('titulo')
     Registrar
 @endsection
 
 @section('navegacion')
-    <a href="{{ route('users.create') }}"></a>
+    <a class="btn btn-primary" href="{{ route('users.config') }}">Volver</a>
 @endsection
 
 @section('contenido')
     <form action="{{ route('users.store') }}" method="POST">
         @csrf
-        <div class="relative z-0 mb-6 mt-6 w-full group">
-            <input type="email" name="email" id="email" 
-            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('email') border-red-500 @enderror" placeholder=" " value="{{ old('email') }}"/>
-            <label for="email" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Correo electronico</label>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="email" class="form-label">Correo electronico</label>
+                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" value="{{ old('email') }}">
+                @error('email')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <div class="relative z-0 mb-6 w-full group">
+                  <label for="usuario" class="form-label">Usuario</label>
+                  <input type="text" name="usuario" id="usuario" class="form-control @error('usuario') is-invalid @enderror"  value="{{ old('usuario') }}"/>
+                </div>
+                @error('usuario')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
+            </div>
+    
+            <div class="col-md-4 mb-3">
+                <label for="password" class="form-label">Contraseña</label>
+                <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror"/>
+                @error('password')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
+            </div>
+    
+    
+            <div class="col-md-4 mb-3">
+                <label for="password_confirmation" class="form-label">Confirmar contraseña</label>
+                <input type="password" name="password_confirmation" id="password_confirmation" class="form-control @error('password_confirmation') is-invalid @enderror"/>
+                @error('password_confirmation')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
+            </div>
+    
         </div>
 
-        @error('email')
-            <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{ $message }}</p>
-        @enderror
 
-        <div class="relative z-0 mb-6 w-full group">
-            <input type="password" name="password" id="password" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('password') border-red-500 @enderror" placeholder=" "  />
-            <label for="password" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Contraseña</label>
-        </div>
-
-        @error('password')
-            <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{ $message }}</p>
-        @enderror
-
-        <div class="relative z-0 mb-6 w-full group">
-            <input type="password" name="password_confirmation" id="password_confirmation" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" "  />
-            <label for="password_confirmation" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Confirmar contraseña</label>
-        </div>
-
-        @error('password_confirmation')
-            <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{ $message }}</p>
-        @enderror
-
-        <div class="grid md:grid-cols-2 md:gap-6">
-          <div class="relative z-0 mb-6 w-full group">
-              <input type="text" name="usuario" id="usuario" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('usuario') border-red-500 @enderror" placeholder=" "  value="{{ old('usuario') }}"/>
-              <label for="usuario" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Usuario</label>
-          </div>
-        </div>
-
-        @error('usuario')
-            <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{ $message }}</p>
-        @enderror
-
-        <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Registrar</button>
+        <button type="submit" class="btn btn-primary">Registrar</button>
       
     </form>
 @endsection

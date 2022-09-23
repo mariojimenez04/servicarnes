@@ -11,17 +11,22 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet"> 
 
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
         <!-- Styles -->
-        @vite('resources/css/app.css')
+        {{-- @vite('resources/css/app.css') --}}
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+        @yield('estilos')
     </head>
     <body>
 
-        <div class="flex">
-            <aside class="sidebar shadow-xl">
+        <div class="d-flex">
+            <aside class="sidebar shadow-lg">
                 <h2>ServiCarnes</h2>
-    
+                <h3 class="text-white fw-bold text-center mt-3">Accesos directos</h3>
                 <nav class="sidebar-nav">
-                    <a href="/admin">Inicio</a>
+                    <a href="/index">Inicio</a>
                     <a href="{{ route('users.config') }}">Usuarios</a>
                     <a href="/remisiones">Remisiones</a>
                     <a href="/notas-credito">Notas Credito</a> 
@@ -29,8 +34,9 @@
             </aside>
     
             <div class="dashboard">
-                <div class="flex gap-3 justify-between">
-                    <div>
+                <div class="d-flex gap-3 justify-content-between mb-5">
+                    <div>        
+                        <p>Version "0.0.6"</p>
                         @yield('navegacion')
                     </div>
                     <div>

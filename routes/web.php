@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\CatalogoController;
+use App\Http\Controllers\CategoriaEmpresaController;
+use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,11 +23,12 @@ Route::get('/', function() {
 });
 
 /* USUARIOS */
+//Pagina principal
+Route::get('/admin/user/index', [UsuarioController::class, 'index'])->name('users.config');
+
 /* Registrar usuarios */
-Route::get('/admin/register-users', [UsuarioController::class, 'create'])->name('users.create');
-Route::post('/admin/register-users', [UsuarioController::class, 'store'])->name('users.store');
-/* Listar usuarios */
-Route::get('/admin/config-users', [UsuarioController::class, 'index'])->name('users.config');
+Route::get('/admin/user/register', [UsuarioController::class, 'create'])->name('users.create');
+Route::post('/admin/user/register', [UsuarioController::class, 'store'])->name('users.store');
 
 /* Actualizar usuarios */
 Route::get('/admin/update-users', [UsuarioController::class, 'update'])->name('');
@@ -35,9 +38,31 @@ Route::post('/admin/update-users', [UsuarioController::class, 'update'])->name('
 Route::post('/admin/delete-users', [UsuarioController::class, 'delete'])->name('');
 
 /* CATALOGOS */
-Route::get('/catalogue', [CatalogoController::class, 'index'])->name('catalogo.index');
+Route::get('/catalogue/index', [CatalogoController::class, 'index'])->name('catalogo.index');
 
-/* INDEX */
+/* EMPRESAS */
+//Pagina Principal
+Route::get('/company/index', [EmpresaController::class, 'index'])->name('empresas.index');
+
+//Pagina para crear
+Route::get('/company/create', [EmpresaController::class, 'create'])->name('empresas.create');
+Route::post('/company/create', [EmpresaController::class, 'store'])->name('empresas.store');
+
+//Pagina para actualizar
+Route::get('/company/update', [EmpresaController::class, 'update'])->name('empresas.update');
+Route::post('/company/update', [EmpresaController::class, 'update'])->name('empresas.update');
+
+//Pagina para mostrar resultado
+Route::get('/company/show', [EmpresaController::class, 'show'])->name('empresas.show');
+
+//Pagina para mostrar la clasificacion
+Route::get('/company/category', [EmpresaController::class, 'category'])->name('empresas.category');
+
+/* CATEGORIA DE LAS EMPRESAS */
+//Pagina principal
+Route::get('/company/category/index', [CategoriaEmpresaController::class, 'index'])->name('category.index');
+
+/* Inicio */
 Route::get('/index', function() {
     return view('index');
 });

@@ -15,11 +15,12 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
 
         <!-- Styles -->
-        @vite('resources/css/app.css')
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
     </head>
     <body>
         
-        <div class="login mt-5">
+        <div class="login">
             <div>
                 <a href="/" class="text-center"><h1>ServiCarnes</h1></a>
                 

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class CatalogoController extends Controller
+class CategoriaEmpresaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +13,8 @@ class CatalogoController extends Controller
      */
     public function index()
     {
-        //
-        return view('catalogos.index');
+        //Retornar la vista
+        return view('empresas.category.index');
     }
 
     /**
