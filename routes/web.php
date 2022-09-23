@@ -31,11 +31,11 @@ Route::get('/admin/user/register', [UsuarioController::class, 'create'])->name('
 Route::post('/admin/user/register', [UsuarioController::class, 'store'])->name('users.store');
 
 /* Actualizar usuarios */
-Route::get('/admin/update-users', [UsuarioController::class, 'update'])->name('');
-Route::post('/admin/update-users', [UsuarioController::class, 'update'])->name('');
+Route::get('/admin/user/edit/{$id}', [UsuarioController::class, 'edit'])->name('users.edit');
+Route::post('/admin/user/edit', [UsuarioController::class, 'update'])->name('users.update');
 
 /* Eliminar usuarios */
-Route::post('/admin/delete-users', [UsuarioController::class, 'delete'])->name('');
+Route::post('/admin/user/delete', [UsuarioController::class, 'delete'])->name('users.delete');
 
 /* CATALOGOS */
 Route::get('/catalogue/index', [CatalogoController::class, 'index'])->name('catalogo.index');

@@ -12,7 +12,7 @@
         <div class="col">
             <a href="{{ route('catalogo.index') }}" class="card">
                 <div class="card-body">
-                    <h3 class="card-title">Catalogo</h3>
+                    <h3 class="card-title">Movimientos</h3>
                     <p class="card-text">Lorem ipsum dolor sit amet consectetur</p>
                 </div>
             </a>

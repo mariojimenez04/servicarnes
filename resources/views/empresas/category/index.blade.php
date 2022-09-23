@@ -22,45 +22,36 @@
                 Rol
             </th>
             <th scope="col">
-                Creado el
-            </th>
-            <th scope="col">
-                <span>Editar</span>
+                Acciones
             </th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <th scope="row">
+            <td>
                 Supervisor
-            </th>
-            <td class="py-4 px-6">
+            </td>
+            <td>
                 correo@correo.com
             </td>
-            <td class="py-4 px-6">
+            <td>
                 Administrador
             </td>
-            <td class="py-4 px-6">
-                21/08/2022
-            </td>
-            <td class="py-4 px-6 text-right">
+            <td>
                 <a href="#">Edit</a>
             </td>
         </tr>
         <tr>
-            <th scope="row">
+            <td>
                 Supervisor
-            </th>
-            <td class="py-4 px-6">
+            </td>
+            <td>
                 correo@correo.com
             </td>
-            <td class="py-4 px-6">
+            <td>
                 Usuario
             </td>
-            <td class="py-4 px-6">
-                25/08/2022
-            </td>
-            <td class="py-4 px-6 text-right">
+            <td>
                 <a href="#">Edit</a>
             </td>
         </tr>
