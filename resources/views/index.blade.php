@@ -10,7 +10,9 @@
     <div class="row row-cols-3">
         <div class="col">
             <a href="{{ route(catalogo.index) }}" class="card">
-                div.
+                <div class="card-body">
+                    
+                </div>
             </a>
         </div>
         <div class="col">
