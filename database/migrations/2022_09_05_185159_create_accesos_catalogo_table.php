@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('accesos_catalogo', function (Blueprint $table) {
+        Schema::create('acceso_catalogos', function (Blueprint $table) {
             $table->id();
             $table->boolean('catalogo_empresas');
             $table->boolean('crear_empresa');
