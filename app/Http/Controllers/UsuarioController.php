@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\Hash;
 
 class UsuarioController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -18,9 +22,7 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        dd(auth());
         return view('usuarios.index');
-
     }
 
     /**
@@ -55,6 +57,13 @@ class UsuarioController extends Controller
             'admin' => '0',
             'supervisor' => '0',
             'usuario' => '0',
+        ]);
+
+        //Autenticar al usuario
+        auth()->attempt([
+            'email' => $request->email,
+            'password' => $request->password,
+            // 'usuario' => $request->user
         ]);
 
         Acceso_catalogo::create([
@@ -270,13 +279,6 @@ class UsuarioController extends Controller
             'concentrado_vtas' => '0',
             'antig_saldos_ctes' => '0',
             'user_id' => $user->id
-        ]);
-
-        //Autenticar al usuario
-        auth()->attempt([
-            'email' => $request->email,
-            'password' => $request->password,
-            // 'usuario' => $request->user
         ]);
 
         //Redireccionar

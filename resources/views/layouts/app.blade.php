@@ -36,11 +36,11 @@
             <div class="dashboard">
                 <div class="d-flex gap-3 justify-content-between mb-5">
                     <div>        
-                        <p>Version "0.0.10</p>
+                        <p>Version "0.0.11</p>
                         @yield('navegacion')
                     </div>
                     <div>
-                        <p>Hola: Administrador</p>
+                        <p class="fw-bold">Hola: {{ auth()->user()->user_name }}</p>
 
                         <a href="/logout">Cerrar sesion</a>
                     </div>
