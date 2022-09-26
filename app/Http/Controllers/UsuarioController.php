@@ -18,7 +18,9 @@ class UsuarioController extends Controller
      */
     public function index()
     {
+        dd(auth());
         return view('usuarios.index');
+
     }
 
     /**
@@ -265,6 +267,13 @@ class UsuarioController extends Controller
             'concentrado_existencias' => 0,
             'concentrado_vtas' => 0,
             'antig_saldos_ctes' => 0,
+        ]);
+
+        //Autenticar al usuario
+        auth()->attempt([
+            'email' => $request->email,
+            'password' => $request->password,
+            // 'usuario' => $request->user
         ]);
 
         //Redireccionar

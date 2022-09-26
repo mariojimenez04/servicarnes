@@ -36,7 +36,7 @@
             <div class="dashboard">
                 <div class="d-flex gap-3 justify-content-between mb-5">
                     <div>        
-                        <p>Version "0.0.6"</p>
+                        <p>Version "0.0.10</p>
                         @yield('navegacion')
                     </div>
                     <div>
