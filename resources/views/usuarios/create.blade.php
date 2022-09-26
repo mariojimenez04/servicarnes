@@ -26,10 +26,10 @@
 
             <div class="col-md-4 mb-3">
                 <div class="relative z-0 mb-6 w-full group">
-                  <label for="user" class="form-label">Usuario</label>
-                  <input type="text" name="user" id="usuario" class="form-control @error('user') is-invalid @enderror"  value="{{ old('user') }}"/>
+                  <label for="user_name" class="form-label">Usuario</label>
+                  <input type="text" name="user_name" id="user_name" class="form-control @error('user_name') is-invalid @enderror"  value="{{ old('user_name') }}"/>
                 </div>
-                @error('user')
+                @error('user_name')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
             </div>
