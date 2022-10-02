@@ -23,7 +23,7 @@
         </div>
 
         <div class="col">
-            <a href="{{ route('catalogo.index') }}" class="card">
+            <a href="{{ route('producto.index') }}" class="card">
                 <div class="card-body">
                     <h3 class="card-title">Productos</h3>
                     <p class="card-text">Lorem ipsum dolor sit amet consectetur</p>

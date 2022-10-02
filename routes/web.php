@@ -1,10 +1,14 @@
 <?php
 
-use App\Http\Controllers\CatalogoController;
-use App\Http\Controllers\CategoriaEmpresaController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\InicioController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\UsuarioController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CatalogoController;
+use App\Http\Controllers\CategoriaEmpresaController;
+use App\Http\Controllers\ProductoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +22,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 /*PAGINA PRINCIPAL*/
-Route::get('/', function() {
-    return view('home');
-});
+//Iniciar sesion
+Route::get('/', [AuthController::class, 'index'])->name('login');
+Route::post('/', [AuthController::class, 'validacion']);
+
+/* Inicio */
+Route::get('/index', [InicioController::class, 'index'])->name('index');
+
+//Cerrar sesion
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 /* USUARIOS */
 //Pagina principal
@@ -62,8 +72,14 @@ Route::get('/company/category', [EmpresaController::class, 'category'])->name('e
 //Pagina principal
 Route::get('/company/category/index', [CategoriaEmpresaController::class, 'index'])->name('category.index');
 
-/* Inicio */
-Route::get('/index', function() {
-    return view('index');
-});
 
+/* Paginacion de productos */
+
+//Pagina principal
+Route::get('/product/index', [ProductoController::class, 'index'])->name('producto.index');
+
+//Catalogo de productos
+Route::get('/product/catalogue/index', [ProductoController::class, 'catalogue'])->name('producto.catalogo.index');
+
+// Route::get();
+// Route::get();

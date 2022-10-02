@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 class CatalogoController extends Controller
 {
+    //Protege las rutas si no esta autenticado
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *

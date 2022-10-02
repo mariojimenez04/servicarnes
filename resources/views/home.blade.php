@@ -27,17 +27,30 @@
                 <div class="login-contenedor">
                     <div class="login-contenido">
             
-                        <form action="/" method="POST">
+                        <form action="{{ route('login') }}" method="POST">
                             @csrf
                             <div class="login-descripcion d-flex">
                                 <span><i class="bi bi-envelope"></i></span>
-                                <input name="email" id="email" type="email" placeholder="Correo Electronico">
+                                <input name="email" id="email" type="email" class="@error('email') is-invalid @enderror" placeholder="Correo Electronico">
                             </div><!--Cierre usuario-->
+
+                            @error('email')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
                             
                             <div class="login-descripcion d-flex">
                                 <span><i class="bi bi-key-fill"></i></span>
-                                <input type="password" name="password" id="password" placeholder="Contraseña">
+                                <input type="password" name="password" id="password" class="@error('password') is-invalid @enderror" placeholder="Contraseña">
                             </div><!--cierre password-->
+
+                            @error('password')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
+                            
+                            @if ( session('mensaje'))
+                            <p class="text-danger">{{ session('mensaje') }}</p>
+                            @endif
+
                             <button class="boton-1" type="submit">Iniciar sesion</button>
                         </form><!--cierre formulario-->
             

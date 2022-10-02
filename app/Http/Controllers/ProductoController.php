@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class CategoriaEmpresaController extends Controller
+class ProductoController extends Controller
 {
-    //Protege las rutas si no esta autenticado
     public function __construct()
     {
         $this->middleware('auth');
@@ -19,7 +18,11 @@ class CategoriaEmpresaController extends Controller
     public function index()
     {
         //Retornar la vista
-        return view('empresas.category.index');
+        return view('productos.index');
+    }
+
+    public function catalogue(){
+        return view('productos.catalogo');
     }
 
     /**

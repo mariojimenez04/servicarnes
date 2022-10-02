@@ -497,7 +497,7 @@ ul {
   width: 100%;
 }
 .login-contenido .login-descripcion {
-  margin-bottom: 2.5rem;
+  margin-bottom: 1rem;
   padding: 0 0;
   border-bottom: 1px solid #e5e5e5;
   position: relative;
@@ -567,4 +567,15 @@ ul {
 
 .dashboard p{
   margin-bottom: 1rem;
+}
+
+.linea{
+  width: 100%;
+  height: .05rem;
+  background-color: #808080;
+}
+
+.centrado {
+  display: grid;
+  place-content: center;
 }

@@ -59,13 +59,6 @@ class UsuarioController extends Controller
             'usuario' => '0',
         ]);
 
-        //Autenticar al usuario
-        auth()->attempt([
-            'email' => $request->email,
-            'password' => $request->password,
-            // 'usuario' => $request->user
-        ]);
-
         Acceso_catalogo::create([
             'catalogo_empresas' => '0',
             'crear_empresa' => '0',
@@ -280,6 +273,17 @@ class UsuarioController extends Controller
             'antig_saldos_ctes' => '0',
             'user_id' => $user->id
         ]);
+
+        
+        //Autenticar al usuario
+        // auth()->attempt([
+        //     'email' => $request->email,
+        //     'password' => $request->password,
+        //     // 'usuario' => $request->user
+        // ]);
+
+        //Otra forma de autenticar
+        auth()->attempt($request->only('email', 'password'));
 
         //Redireccionar
         return redirect()->route('users.config');
